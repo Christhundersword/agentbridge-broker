@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: agentbridge-broker
+    runtime: docker
+    plan: starter
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: OIDC_ISSUER
+        value: https://auth.manus.im
+      - key: OIDC_AUDIENCE
+        value: https://api.agentbridge.manus.im
+      - key: OIDC_REQUIRED_SCOPE
+        value: agentbridge
+      - key: ENFORCE_SCOPES
+        value: "1"
+      - key: AGENTBRIDGE_ENROLLMENT_KEY
+        generateValue: true
+      - key: STATE_PATH
+        value: /data/broker_state.json
+    disk:
+      name: broker-state
+      mountPath: /data
+      sizeGB: 1
