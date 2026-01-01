@@ -4,7 +4,7 @@ services:
     runtime: docker
     plan: free
     repo: https://github.com/Christhundersword/agentbridge-broker
-    branch: main
+    branch: master
     dockerfilePath: ./Dockerfile
     dockerContext: .
     region: oregon
