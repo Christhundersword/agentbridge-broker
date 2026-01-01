@@ -2,7 +2,11 @@ services:
   - type: web
     name: agentbridge-broker
     runtime: docker
-    plan: starter
+    plan: free
+    repo: https://github.com/Christhundersword/agentbridge-broker
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     region: oregon
     healthCheckPath: /health
     envVars:
