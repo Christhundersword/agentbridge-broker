@@ -50,6 +50,8 @@ class OIDCAuth(AuthProvider):
         self._issuer: Optional[str] = None
         self._audience: str = OIDC_AUDIENCE
         self._required_scope: str = OIDC_REQUIRED_SCOPE
+        self.base_url: Optional[str] = None
+        self.required_scopes: List[str] = [OIDC_REQUIRED_SCOPE] if OIDC_REQUIRED_SCOPE else []
 
     async def _init(self):
         if self._jwks_client:
